@@ -7,31 +7,38 @@ const input = readFileSync(
     'utf-8'
 )
 
+const EXAMPLE = `
+    L68
+    L30
+    R48
+    L5
+    R60
+    L55
+    L1
+    L99
+    R14
+    L82
+`
+
 test('part 1 [exmp]', () => {
-    const example = `
-    `
-    const res = part1(example)
-    console.log('Part 1 [EXMP]:', res)
-    expect(res).toBe(-1)
+    const res = part1(EXAMPLE)
+    expect(res).toBe(3)
 })
 
 test('part 1 [soln]', () => {
     const res = part1(input)
-    console.log('Part 1 [SOLN]:', res)
-    expect(res).toBe(-1)
+    console.log('Part 1:', res)
+    expect(res).toBe(1092)
 })
 
 test('part 2 [exmp]', () => {
-    const example = `
-    `
-    const res = part2(example)
-    console.log('Part 2 [EXMP]:', res)
-    expect(res).toBe(-1)
+    const res = part2(EXAMPLE)
+    expect(res).toBe(6)
 })
 
 test('part 2 [soln]', () => {
     const res = part2(input)
     console.log('Part 2:', res)
-    expect(res).toBe(-1)
+    expect(res).toBe(6616)
 })
 
