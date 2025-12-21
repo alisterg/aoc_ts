@@ -23,8 +23,8 @@ fi
 mkdir -p "$year"
 
 # Copy templates with substitution
-sed "s/{{DAY}}/$day/g" ./TEMPLATE > "./$year/$day.ts"
-sed "s/{{DAY}}/$day/g" ./TEST_TEMPLATE > "./$year/$day.test.ts"
+sed "s/{{DAY}}/$day/g" ./template/TEMPLATE > "./$year/$day.ts"
+sed "s/{{DAY}}/$day/g" ./template/TEST_TEMPLATE > "./$year/$day.test.ts"
 
 echo "Created $year/$day.ts and $year/$day.test.ts"
 
