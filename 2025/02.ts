@@ -1,10 +1,8 @@
-
 function isInvalid(num: number) {
     const str = `${num}`
     const halfLength = str.length / 2
     const firstHalf = str.slice(0, halfLength)
     const secondHalf = str.slice(halfLength)
-
     return firstHalf === secondHalf
 }
 
@@ -32,9 +30,30 @@ export function part1(input: string): number {
     return result
 }
 
+function isInvalidPart2(num: number) {
+    // gave up; found this nice solution online
+    // concat the string to itself, remove the first and last chars, then if
+    // the result contains the original, it's a repeating sequence
+    const str = `${num}`
+    return (str + str).slice(1, -1).includes(str)
+}
+
+/**
+ * Same as above but:
+ * It's invalid if a number repeats AT LEAST twice (not just twice like in the
+ * first part)
+ */
 export function part2(input: string): number {
-    const lines = input.trim().split('\n')
-    // solve it
-    return 0
+    const ranges = input.trim().split(',')
+
+    let result = 0
+    ranges.forEach(range => {
+        const [first, last] = range.split('-')
+        for (let i = +first; i <= +last; i++) {
+            if (isInvalidPart2(i)) result += i
+        }
+    })
+
+    return result
 }
 
